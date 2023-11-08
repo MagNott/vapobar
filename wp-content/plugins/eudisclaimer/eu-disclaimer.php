@@ -9,7 +9,7 @@
 * License: Libre
  */ 
 
-require_once ('Model/Repository/DisclaimerGestionTable.php'); 
+require_once ('model/repository/DisclaimerGestionTable.php'); 
 
 //Création de la fonction "Ajouter au menu"
 function ajouterAuMenu() {
@@ -38,9 +38,9 @@ function disclaimerFonction() {
 if (class_exists("DisclaimerGestionTable")) { 
  $gerer_table = new DisclaimerGestionTable(); 
 } 
- 
+
 if (isset($gerer_table)) { 
-    
+
  // Création de la table en BDD lors de l'activation
  register_activation_hook(__FILE__, array($gerer_table, 'creerTable')); 
 

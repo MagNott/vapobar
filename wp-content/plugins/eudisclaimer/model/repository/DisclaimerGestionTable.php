@@ -7,6 +7,7 @@ include( MY_PLUGIN_PATH . '../entity/DisclaimerOptions.php');
 class DisclaimerGestionTable {
 
     public function creerTable() { 
+
         // Instanciation de la classe DisclaimerOption
         $message = new DisclaimerOptions(); 
         // $message = new DisclaimerOptions(0, "Au regard de la loi européenne, 
@@ -24,11 +25,12 @@ class DisclaimerGestionTable {
 
         $tableDisclaimer = $wpdb->prefix.'disclaimer_options'; 
 
+        
         if ($wpdb->get_var("SHOW TABLES LIKE $tableDisclaimer") !=$tableDisclaimer) { 
         // La table n'existe pas déjà
             $sql = "CREATE TABLE $tableDisclaimer
 
-            id_disclaimer INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            (id_disclaimer INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
             message_disclaimer TEXT NOT NULL, 
             redirection_ko TEXT NOT NULL)
             ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 
