@@ -104,7 +104,7 @@ class DisclaimerGestionTable {
                 
                 <a href="' . $lien_redirection . '" type="button" class="btn-red">Non</a>
 
-                <a href="#" type="button" rel="modal:close" class="btn-green">Oui</a> 
+                <a href="#" type="button" rel="modal:close" class="btn-green" onclick="accepterLeDisclaimer()">Oui</a> 
 
                 </div>'; 
         }

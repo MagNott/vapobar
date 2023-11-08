@@ -3,8 +3,8 @@
  if (!empty($_POST['message_disclaimer']) && !empty($_POST['url_redirection'])) {
 
  $text = new DisclaimerOptions(); 
- $text->setMessageDisclaimer($_POST['message_disclaimer']); 
- $text->setRedirectionko($_POST['url_redirection']); 
+ $text->setMessageDisclaimer(htmlspecialchars($_POST['message_disclaimer'])); 
+ $text->setRedirectionko(htmlspecialchars($_POST['url_redirection'])); 
 
  DisclaimerGestionTable::insererDansTable($text->getMessageDisclaimer(), $text->getRedirectionko()); 
 
