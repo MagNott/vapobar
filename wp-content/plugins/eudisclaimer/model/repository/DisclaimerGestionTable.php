@@ -56,12 +56,32 @@ class DisclaimerGestionTable {
     } 
 
     public function supprimerTable() { 
+
         global $wpdb; 
         $table_disclaimer = $wpdb->prefix . "disclaimer_options"; 
         $sql = "DROP TABLE $table_disclaimer"; 
+
         $wpdb->query($sql); 
     }
 
+
+    static function insererDansTable($contenu, $url) { 
+
+        global $wpdb; 
+        $table_disclaimer = $wpdb->prefix.'disclaimer_options'; 
+        $sql = $wpdb->prepare( 
+        "UPDATE $table_disclaimer SET message_disclaimer = '%s', redirection_ko = '%s' WHERE id_disclaimer = '%s'", $contenu, $url, 1); 
+
+        $wpdb->query($sql); 
+    }
+
+    static public function getplaceholder() {
+
+        global $wpdb;
+        $table_disclaimer = $wpdb->prefix.'disclaimer_options'; 
+
+        return $wpdb->get_results( "SELECT * FROM $table_disclaimer;" );
+    }
 
     
 }
