@@ -61,7 +61,7 @@ function inserer_js_dans_footer() {
 
       wp_enqueue_script('jQuery_modal');
 
-      wp_register_script('jQuery_eu', plugins_url('assets/js/eu-disclaimer-cookie.js', __FILE__), null, null, true);
+      wp_register_script('jQuery_eu', plugins_url('assets/js/eu-disclaimer.js', __FILE__), null, null, true);
 
         //    plugins_url('assets/js/eu-disclaimer.js', __FILE__), 
         //    array('jquery'), '1.1', true);
@@ -76,7 +76,7 @@ function inserer_js_dans_footer() {
 
    function ajouter_css() {
       if (!is_admin()) :
-          wp_register_style('eu-disclaimer-css', plugins_url('assets/css/eu-disclaimer-css-cookie.css', __FILE__), null, null, false);
+          wp_register_style('eu-disclaimer-css', plugins_url('assets/css/eu-disclaimer-css.css', __FILE__), null, null, false);
 
           wp_enqueue_style('eu-disclaimer-css');
 
@@ -88,9 +88,13 @@ function inserer_js_dans_footer() {
    }
 
 
+   add_action('wp_body_open', 'afficheModalDansBody'); 
 
+   function afficheModalDansBody() { 
 
+    echo DisclaimerGestionTable::AfficherDonneModal(); 
 
+   } 
 
 }
 

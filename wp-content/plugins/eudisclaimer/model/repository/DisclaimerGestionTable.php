@@ -84,18 +84,29 @@ class DisclaimerGestionTable {
     }
 
     static function AfficherDonneModal() { 
+
         global $wpdb; 
+
         $query = "SELECT * from " . $wpdb->prefix."disclaimer_options"; 
+
         $row = $wpdb->get_row($query); 
+
         $message_disclaimer = $row->message_disclaimer; 
+
         $lien_redirection = $row->redirection_ko; 
+
         // echo '<div id="monModal" class="modal">
         return '<div id="monModal" class="modal">
-        <p>Le vapobar, vous souhaite la bienvenue ! </p>
-        <p>'. $message_disclaimer . '</p><a href="' . $lien_redirection . '"
-        type="button" class="btn-red">Non</a>
-        <a href="#" type="button" rel="modal:close" class="btn-green">Oui</a> 
-        </div>'; 
+
+                <p>Le vapobar, vous souhaite la bienvenue ! </p>
+
+                <p>'. $message_disclaimer . '</p>
+                
+                <a href="' . $lien_redirection . '" type="button" class="btn-red">Non</a>
+
+                <a href="#" type="button" rel="modal:close" class="btn-green">Oui</a> 
+
+                </div>'; 
         }
 
     
