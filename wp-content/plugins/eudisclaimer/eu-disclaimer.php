@@ -9,6 +9,7 @@
 * License: Libre
  */ 
 
+// Inclut le fichier nécessaire pour la gestion du plugin 
 require_once ('model/repository/DisclaimerGestionTable.php'); 
 
 //Création de la fonction "Ajouter au menu"
@@ -20,7 +21,10 @@ function ajouterAuMenu() {
     $function = "disclaimerFonction";
     $icon = "";
     $position = 80; // L'entrée dans le menu sera juste en dessous de "Réglages"
+
+    // Vérifie si l'utilisateur est un administrateur
     if (is_admin()) {
+        // Ajoute la page au menu d'administration
         add_menu_page($page, $menu, $capacity, $slug, $function, $icon, $position);
     }
 }
